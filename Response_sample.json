@@ -1,10 +1,15 @@
-[{
+{
     "order number" : "101005",
     "lines": [
         {
             "line number" : "10000",
             "item number" : "1920-S",
             "calculated line amount" : "100"
+        },
+        {
+            "line number" : "20000",
+            "item number" : "1908-S",
+            "calculated line amount" : "100"
         }
     ]
-}]
+}
