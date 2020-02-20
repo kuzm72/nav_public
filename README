@@ -1,23 +1,14 @@
-Labs exercises for AL language (Dynamis 365 BC)
+### BC365 / Price Calculation 3rd Party Software Integration
 
-- Create a directory on the local file system.
-- Create a repo on Github.
-- Select Clone "Clone or download" on Github, copy the link
-- In Visual Studio Code, sect File -> Add Folder to Workspace -> Select the newly created directory
-- Select Terminal Window
-- In the window, type:
-    > git config --global user.name <github userID>
-    >  git clone <URL from github link copied earlier>
+Use Case:
 
-That should be all that's required.  any newly created file should be available on github after stage/commit/push.
-
-Create branch:
-- CTRL-Shift-P Git:Branch <branch name>
-
-Shitch to the branch:
-- CTRL-Shift-P: Git: Checkout to <branch name>
-
-Publish the branch:
-cloud icon
-
-Next Steps: do the modifucation, stage changes, commit, push
+The user creates sales order in BC365 using standard functionality. 
+On the header level, location and sell-to customer information is specified.
+On lines level, the user add all required item lines with corresponding quantities. Line amounts left as they are.
+The user releases the order.
+The user presses Retrieve Prices action.
+BC365 sends sales order data as web request to external web service endpoint (POST mether, use toool like Mockoon to create mock-up interface);
+Use JSON format for communication. SH fields to be sent: order number, location code, customer code; SL fields to be sent (as JSOM sub-array):line no, item no, quantity;
+External system sends back order data to BC365 as web response with calculated sales prices.  
+Use JSON format for communication. Fields to be pushed to BC365: Order header: order number; Item lines: line number, item number, calculated line amount;
+The system should update the order with line amounts received from web service;
